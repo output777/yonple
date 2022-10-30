@@ -118,7 +118,6 @@ const Post = () => {
 
 
   const fetchBposts = async () => {
-    const token = 683914;
     try {
       const { data } = await axios.get(`https://recruit-api.yonple.com/recruit/${token}/b-posts?page=${bpageNumber}`);
       setBPost((prev) => [...prev, ...data]);
@@ -129,7 +128,6 @@ const Post = () => {
   }
 
   const fetchSearchAposts = async () => {
-    console.log('searchApageNumber', searchApageNumber)
     try {
       const { data } = await axios.get(`https://recruit-api.yonple.com/recruit/${token}/a-posts?page=${searchApageNumber}&search=${input}`);
       setSearchApost((prev) => [...prev, ...data]);
@@ -188,7 +186,6 @@ const Post = () => {
   }
 
   // 옵저버 등록
-  // 이게 재실행 안되면 apageNumber값 변경 안됨
   useEffect(() => {
     if (input.length === 0) {
       let observer;
